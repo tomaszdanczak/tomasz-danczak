@@ -5,6 +5,7 @@ import { XIcon } from "@heroicons/react/outline"
 import { navigation } from "data/navigationItemsData"
 import HeroLogo from "components/molecules/HeroLogo/HeroLogo"
 import PopoverOpenButton from "components/molecules/PopoverOpenButton/PopoverOpenButton"
+import DesktopMenuItems from "components/molecules/DesktopMenuItems/DesktopMenuItems"
 
 export default function Navigation() {
   return (
@@ -20,23 +21,7 @@ export default function Navigation() {
               <PopoverOpenButton />
             </div>
           </div>
-          <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-            {navigation.map(item => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="font-medium text-gray-500 hover:text-gray-900"
-              >
-                {item.name}
-              </a>
-            ))}
-            <a
-              href="#"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              Log in
-            </a>
-          </div>
+          <DesktopMenuItems />
         </nav>
       </div>
 
