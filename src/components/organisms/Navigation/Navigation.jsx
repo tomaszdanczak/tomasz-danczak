@@ -1,11 +1,11 @@
 import React from "react"
-import { Fragment } from "react"
-import { Popover, Transition } from "@headlessui/react"
+import { Popover } from "@headlessui/react"
 import { XIcon } from "@heroicons/react/outline"
 import { navigation } from "data/navigationItemsData"
 import HeroLogo from "components/molecules/HeroLogo/HeroLogo"
 import PopoverOpenButton from "components/molecules/PopoverOpenButton/PopoverOpenButton"
 import DesktopMenuItems from "components/molecules/DesktopMenuItems/DesktopMenuItems"
+import TransitionPopoverPanel from "components/atoms/TransitionPopoverPanel/TransitionPopoverPanel"
 
 export default function Navigation() {
   return (
@@ -25,15 +25,7 @@ export default function Navigation() {
         </nav>
       </div>
 
-      <Transition
-        as={Fragment}
-        enter="duration-150 ease-out"
-        enterFrom="opacity-0 scale-95"
-        enterTo="opacity-100 scale-100"
-        leave="duration-100 ease-in"
-        leaveFrom="opacity-100 scale-100"
-        leaveTo="opacity-0 scale-95"
-      >
+      <TransitionPopoverPanel>
         <Popover.Panel
           focus
           className="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
@@ -73,7 +65,7 @@ export default function Navigation() {
             </a>
           </div>
         </Popover.Panel>
-      </Transition>
+      </TransitionPopoverPanel>
     </Popover>
   )
 }
