@@ -1,12 +1,12 @@
 import React from "react"
 import { Popover } from "@headlessui/react"
-import { XIcon } from "@heroicons/react/outline"
 import { navigation } from "data/navigationItemsData"
 import HeroLogo from "components/molecules/HeroLogo/HeroLogo"
 import PopoverOpenButton from "components/molecules/PopoverOpenButton/PopoverOpenButton"
 import DesktopMenuItems from "components/molecules/DesktopMenuItems/DesktopMenuItems"
 import TransitionPopoverPanel from "components/atoms/TransitionPopoverPanel/TransitionPopoverPanel"
-import PopoverLogo from "../../atoms/PopoverLogo/PopoverLogo"
+import PopoverLogo from "components/atoms/PopoverLogo/PopoverLogo"
+import PopoverCloseButton from "components/molecules/PopoverCloseButton/PopoverCloseButton"
 
 export default function Navigation() {
   return (
@@ -34,12 +34,7 @@ export default function Navigation() {
           <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div className="px-5 pt-4 flex items-center justify-between">
               <PopoverLogo />
-              <div className="-mr-2">
-                <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                  <span className="sr-only">Close main menu</span>
-                  <XIcon className="h-6 w-6" aria-hidden="true" />
-                </Popover.Button>
-              </div>
+              <PopoverCloseButton />
             </div>
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map(item => (
