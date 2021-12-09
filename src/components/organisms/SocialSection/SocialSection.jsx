@@ -1,4 +1,5 @@
 import React from "react"
+import SocialLink from "../../atoms/SocialLink/SocialLink"
 import SocialHeader from "../../molecules/SocialHeader/SocialHeader"
 
 export default function SocialSection() {
@@ -12,12 +13,13 @@ export default function SocialSection() {
           Malesuada adipiscing sagittis vel nulla nec."
         />
 
-        <a
-          href="#"
-          className="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto"
-        >
-          Sign up for free
-        </a>
+        <div className="sm:space-x-8">
+          <SocialLink
+            label="LinkedIn"
+            href="https://www.linkedin.com/in/tomasz-danczak/"
+          />
+          <SocialLink label="GitHub" href="https://github.com/tomaszdanczak" />
+        </div>
       </div>
     </div>
   )
