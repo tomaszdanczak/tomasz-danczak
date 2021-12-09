@@ -1,12 +1,12 @@
 import React from "react"
 import { Popover } from "@headlessui/react"
-import { navigation } from "data/navigationItemsData"
 import HeroLogo from "components/molecules/HeroLogo/HeroLogo"
 import PopoverOpenButton from "components/molecules/PopoverOpenButton/PopoverOpenButton"
 import DesktopMenuItems from "components/molecules/DesktopMenuItems/DesktopMenuItems"
 import TransitionPopoverPanel from "components/atoms/TransitionPopoverPanel/TransitionPopoverPanel"
 import PopoverLogo from "components/atoms/PopoverLogo/PopoverLogo"
 import PopoverCloseButton from "components/molecules/PopoverCloseButton/PopoverCloseButton"
+import MobileMenuItems from "components/molecules/MobileMenuItems/MobileMenuItems"
 
 export default function Navigation() {
   return (
@@ -36,23 +36,7 @@ export default function Navigation() {
               <PopoverLogo />
               <PopoverCloseButton />
             </div>
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map(item => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-            <a
-              href="#"
-              className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"
-            >
-              Log in
-            </a>
+            <MobileMenuItems />
           </div>
         </Popover.Panel>
       </TransitionPopoverPanel>
