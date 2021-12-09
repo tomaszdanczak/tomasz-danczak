@@ -1,50 +1,38 @@
 import React from "react"
-import {
-  AnnotationIcon,
-  GlobeAltIcon,
-  LightningBoltIcon,
-  ScaleIcon,
-} from "@heroicons/react/outline"
 import Header from "components/molecules/Header/Header"
 import AboutItem from "components/molecules/AboutItem/AboutItem"
-
-const features = [
-  {
-    name: "Competitive exchange rates",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    icon: GlobeAltIcon,
-  },
-  {
-    name: "No hidden fees",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    icon: ScaleIcon,
-  },
-  {
-    name: "Transfers are instant",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    icon: LightningBoltIcon,
-  },
-  {
-    name: "Mobile notifications",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
-    icon: AnnotationIcon,
-  },
-]
+import { graphql, useStaticQuery } from "gatsby"
 
 export default function AboutSection() {
+  const data = useStaticQuery(graphql`
+    {
+      allDatoCmsHeading(filter: { section: { eq: "AboutSection" } }) {
+        nodes {
+          title
+          subtitle
+          special
+        }
+      }
+      allDatoCmsAboutsectionfeature(sort: { fields: originalId }) {
+        nodes {
+          title
+          description
+        }
+      }
+    }
+  `)
+
+  const [headingData] = data.allDatoCmsHeading.nodes
+  const features = data.allDatoCmsAboutsectionfeature.nodes
+
   return (
     <div className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Header
           centreFrom="lg"
-          decoration="Transactions"
-          title="A better way to send money"
-          subtitle="Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam
-          voluptatum cupiditate veritatis in accusamus quisquam."
+          decoration={headingData.special}
+          title={headingData.title}
+          subtitle={headingData.subtitle}
         />
 
         <div className="mt-10">
