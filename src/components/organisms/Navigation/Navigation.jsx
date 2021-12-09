@@ -1,9 +1,10 @@
 import React from "react"
 import { Fragment } from "react"
 import { Popover, Transition } from "@headlessui/react"
-import { MenuIcon, XIcon } from "@heroicons/react/outline"
+import { XIcon } from "@heroicons/react/outline"
 import { navigation } from "data/navigationItemsData"
 import HeroLogo from "components/molecules/HeroLogo/HeroLogo"
+import PopoverOpenButton from "components/molecules/PopoverOpenButton/PopoverOpenButton"
 
 export default function Navigation() {
   return (
@@ -16,19 +17,7 @@ export default function Navigation() {
           <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
             <div className="flex items-center justify-between w-full md:w-auto">
               <HeroLogo />
-              {/* <a href="#">
-                <span className="sr-only">Workflow</span>
-                <img
-                  className="h-8 w-auto sm:h-10"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                />
-              </a> */}
-              <div className="-mr-2 flex items-center md:hidden">
-                <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                  <span className="sr-only">Open main menu</span>
-                  <MenuIcon className="h-6 w-6" aria-hidden="true" />
-                </Popover.Button>
-              </div>
+              <PopoverOpenButton />
             </div>
           </div>
           <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
