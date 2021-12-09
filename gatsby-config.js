@@ -1,3 +1,6 @@
+require('dotenv').config()
+
+
 module.exports = {
   siteMetadata: {
     title: `Tomasz Dańczak Portfolio Website`,
@@ -25,6 +28,12 @@ module.exports = {
           include: /assets/ // See below to configure properly
         }
       }
+    },
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: process.env.API_DATO_CMS,
+      },
     },
     // {
     //   resolve: `gatsby-plugin-manifest`,
