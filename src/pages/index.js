@@ -1,7 +1,8 @@
 import * as React from "react"
+import HeroSection from "components/organisms/HeroSection/HeroSection"
 
 const IndexPage = () => (
-  <h1 className="bg-red-400">Home Page</h1>
+  <HeroSection />
 )
 
 export default IndexPage
