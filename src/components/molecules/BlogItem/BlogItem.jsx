@@ -25,12 +25,12 @@ export default function BlogItem({
   return (
     <Card>
       <div className="flex-shrink-0">
-        <Link to={`/articles/${slug}`}>
+        <Link to={`/articles/${slug}/#article`}>
           <PostImage image={image} />
         </Link>
       </div>
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-        <Link to={`/articles/${slug}`}>
+        <Link to={`/articles/${slug}/#article`}>
           <PostDescription
             category={category}
             href={href}

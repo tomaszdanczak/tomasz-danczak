@@ -7,7 +7,7 @@ import ArticleContent from "../ArticleContent/ArticleContent"
 
 export default function Article({ postData }) {
   return (
-    <div className="relative py-16 bg-white overflow-hidden">
+    <div id="article" className="relative py-16 bg-white overflow-hidden">
       <ArticleBackground />
       <div className="relative px-4 sm:px-6 lg:px-8">
         <div className="text-lg max-w-prose mx-auto">
