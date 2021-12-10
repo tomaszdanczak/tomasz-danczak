@@ -1,10 +1,12 @@
 import React from "react"
 import Card from "../../atoms/Card/Card"
+import PostImage from "../../atoms/PostImage/PostImage"
 
 export default function BlogItem({
   post: {
     title,
     imageUrl,
+    image,
     description,
     author,
     href,
@@ -17,7 +19,7 @@ export default function BlogItem({
   return (
     <Card>
       <div className="flex-shrink-0">
-        <img className="h-48 w-full object-cover" src={imageUrl} alt="" />
+        <PostImage image={image} />
       </div>
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
         <div className="flex-1">
