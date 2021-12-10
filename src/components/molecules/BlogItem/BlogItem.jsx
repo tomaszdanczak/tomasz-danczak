@@ -1,6 +1,7 @@
 import React from "react"
 import Card from "../../atoms/Card/Card"
 import PostImage from "../../atoms/PostImage/PostImage"
+import PostDescription from "../PostDescription/PostDescription"
 
 export default function BlogItem({
   post: {
@@ -22,17 +23,12 @@ export default function BlogItem({
         <PostImage image={image} />
       </div>
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-        <div className="flex-1">
-          <p className="text-sm font-medium text-indigo-600">
-            <a href={category.href} className="hover:underline">
-              {category.name}
-            </a>
-          </p>
-          <a href={href} className="block mt-2">
-            <p className="text-xl font-semibold text-gray-900">{title}</p>
-            <p className="mt-3 text-base text-gray-500">{description}</p>
-          </a>
-        </div>
+        <PostDescription
+          category={category}
+          href={href}
+          title={title}
+          description={description}
+        />
         <div className="mt-6 flex items-center">
           <div className="flex-shrink-0">
             <a href={author.href}>
