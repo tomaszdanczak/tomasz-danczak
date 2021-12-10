@@ -1,6 +1,7 @@
 import React from "react"
 import ArticleBackground from "components/molecules/ArticleBackground/ArticleBackground"
-import ArticleHeading from "../../atoms/ArticleHeading/ArticleHeading"
+import ArticleHeading from "components/atoms/ArticleHeading/ArticleHeading"
+import ArticleIntroParagraph from "components/atoms/ArticleIntroParagraph/ArticleIntroParagraph"
 
 export default function Article({ postData }) {
   return (
@@ -9,12 +10,7 @@ export default function Article({ postData }) {
       <div className="relative px-4 sm:px-6 lg:px-8">
         <div className="text-lg max-w-prose mx-auto">
           <ArticleHeading title={postData.title} />
-          <p className="mt-8 text-xl text-gray-500 leading-8">
-            Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At
-            arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae
-            feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget.
-            Eleifend egestas fringilla sapien.
-          </p>
+          <ArticleIntroParagraph content={postData.paragraphIntro} />
         </div>
         <div className="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto">
           <p>
