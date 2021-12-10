@@ -1,5 +1,6 @@
 import React from "react"
 import ArticleBackground from "components/molecules/ArticleBackground/ArticleBackground"
+import ArticleHeading from "../../atoms/ArticleHeading/ArticleHeading"
 
 export default function Article({ postData }) {
   return (
@@ -7,14 +8,7 @@ export default function Article({ postData }) {
       <ArticleBackground />
       <div className="relative px-4 sm:px-6 lg:px-8">
         <div className="text-lg max-w-prose mx-auto">
-          <h1>
-            <span className="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">
-              Introducing
-            </span>
-            <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-              JavaScript for Beginners
-            </span>
-          </h1>
+          <ArticleHeading title={postData.title} />
           <p className="mt-8 text-xl text-gray-500 leading-8">
             Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At
             arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae
