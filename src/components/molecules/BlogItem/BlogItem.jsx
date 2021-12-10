@@ -1,8 +1,10 @@
 import React from "react"
-import Card from "../../atoms/Card/Card"
-import PostImage from "../../atoms/PostImage/PostImage"
-import CardFooter from "../CardFooter/CardFooter"
-import PostDescription from "../PostDescription/PostDescription"
+import slugify from "slugify"
+import { Link } from "gatsby"
+import Card from "components/atoms/Card/Card"
+import PostImage from "components/atoms/PostImage/PostImage"
+import CardFooter from "components/molecules/CardFooter/CardFooter"
+import PostDescription from "components/molecules/PostDescription/PostDescription"
 
 export default function BlogItem({
   post: {
@@ -18,18 +20,25 @@ export default function BlogItem({
     authorimage,
   },
 }) {
+  const slug = slugify(title, { lower: true })
+
   return (
     <Card>
       <div className="flex-shrink-0">
-        <PostImage image={image} />
+        <Link to={`/articles/${slug}/#article`}>
+          <PostImage image={image} />
+        </Link>
       </div>
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-        <PostDescription
-          category={category}
-          href={href}
-          title={title}
-          description={description}
-        />
+        <Link to={`/articles/${slug}/#article`}>
+          <PostDescription
+            category={category}
+            href={href}
+            title={title}
+            description={description}
+          />
+        </Link>
+
         <CardFooter
           author={author}
           datetime={datetime}
