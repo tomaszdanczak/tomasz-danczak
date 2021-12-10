@@ -1,5 +1,6 @@
 import React from "react"
-import AuthorPhoto from "../AuthorPhoto/AuthorPhoto"
+import AuthorPhoto from "components/molecules/AuthorPhoto/AuthorPhoto"
+import PostDetail from "components/molecules/PostDetail/PostDetail"
 
 export default function CardFooter({
   author,
@@ -12,18 +13,12 @@ export default function CardFooter({
     <div className="mt-6 flex items-center">
       <AuthorPhoto authorimage={authorimage} author={author} />
 
-      <div className="ml-3">
-        <p className="text-sm font-medium text-gray-900">
-          <a href={author.href} className="hover:underline">
-            {author.name}
-          </a>
-        </p>
-        <div className="flex space-x-1 text-sm text-gray-500">
-          <time dateTime={datetime}>{date}</time>
-          <span aria-hidden="true">&middot;</span>
-          <span>{readingtime} read</span>
-        </div>
-      </div>
+      <PostDetail
+        author={author}
+        datetime={datetime}
+        date={date}
+        readingtime={readingtime}
+      />
     </div>
   )
 }
