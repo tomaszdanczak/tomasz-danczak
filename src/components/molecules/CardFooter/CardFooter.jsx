@@ -1,18 +1,17 @@
 import React from "react"
+import AuthorPhoto from "../AuthorPhoto/AuthorPhoto"
 
-export default function CardFooter({ author, datetime, date, readingtime }) {
+export default function CardFooter({
+  author,
+  datetime,
+  date,
+  readingtime,
+  authorimage,
+}) {
   return (
     <div className="mt-6 flex items-center">
-      <div className="flex-shrink-0">
-        <a href={author.href}>
-          <span className="sr-only">{author.name}</span>
-          <img
-            className="h-10 w-10 rounded-full"
-            src={author.imageUrl}
-            alt=""
-          />
-        </a>
-      </div>
+      <AuthorPhoto authorimage={authorimage} author={author} />
+
       <div className="ml-3">
         <p className="text-sm font-medium text-gray-900">
           <a href={author.href} className="hover:underline">
