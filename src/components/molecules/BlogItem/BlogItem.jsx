@@ -1,4 +1,5 @@
 import React from "react"
+import Card from "../../atoms/Card/Card"
 
 export default function BlogItem({
   post: {
@@ -14,10 +15,7 @@ export default function BlogItem({
   },
 }) {
   return (
-    <div
-      key={title}
-      className="flex flex-col rounded-lg shadow-lg overflow-hidden"
-    >
+    <Card>
       <div className="flex-shrink-0">
         <img className="h-48 w-full object-cover" src={imageUrl} alt="" />
       </div>
@@ -58,6 +56,6 @@ export default function BlogItem({
           </div>
         </div>
       </div>
-    </div>
+    </Card>
   )
 }
