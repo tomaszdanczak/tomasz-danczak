@@ -1,6 +1,7 @@
 import React from "react"
 import Card from "../../atoms/Card/Card"
 import PostImage from "../../atoms/PostImage/PostImage"
+import CardFooter from "../CardFooter/CardFooter"
 import PostDescription from "../PostDescription/PostDescription"
 
 export default function BlogItem({
@@ -13,8 +14,8 @@ export default function BlogItem({
     href,
     category,
     datetime,
-    date,
-    readingTime,
+    readingtime,
+    authorimage,
   },
 }) {
   return (
@@ -29,30 +30,12 @@ export default function BlogItem({
           title={title}
           description={description}
         />
-        <div className="mt-6 flex items-center">
-          <div className="flex-shrink-0">
-            <a href={author.href}>
-              <span className="sr-only">{author.name}</span>
-              <img
-                className="h-10 w-10 rounded-full"
-                src={author.imageUrl}
-                alt=""
-              />
-            </a>
-          </div>
-          <div className="ml-3">
-            <p className="text-sm font-medium text-gray-900">
-              <a href={author.href} className="hover:underline">
-                {author.name}
-              </a>
-            </p>
-            <div className="flex space-x-1 text-sm text-gray-500">
-              <time dateTime={datetime}>{date}</time>
-              <span aria-hidden="true">&middot;</span>
-              <span>{readingTime} read</span>
-            </div>
-          </div>
-        </div>
+        <CardFooter
+          author={author}
+          datetime={datetime}
+          readingtime={readingtime}
+          authorimage={authorimage}
+        />
       </div>
     </Card>
   )
