@@ -3,6 +3,7 @@ import { useFormik } from "formik"
 import * as Yup from "yup"
 import axios from "axios"
 import FormControl from "components/molecules/FormControl/FormControl"
+import TextArea from "components/molecules/TextArea/TextArea"
 
 export default function ContactForm() {
   const formik = useFormik({
@@ -65,19 +66,15 @@ export default function ContactForm() {
         error={formik.errors.phone}
       />
 
-      <div>
-        <label htmlFor="message" className="sr-only">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
-          className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border border-gray-300 rounded-md"
-          placeholder="Message"
-          defaultValue={""}
-        />
-      </div>
+      <TextArea
+        name="message"
+        placeholder="Message"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.message}
+        touched={formik.touched.message}
+        error={formik.errors.message}
+      />
 
       <div>
         <button
