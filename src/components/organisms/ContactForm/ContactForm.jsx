@@ -2,6 +2,7 @@ import React from "react"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import axios from "axios"
+import FormControl from "components/molecules/FormControl/FormControl"
 
 export default function ContactForm() {
   const formik = useFormik({
@@ -31,45 +32,39 @@ export default function ContactForm() {
       className="grid grid-cols-1 gap-y-6"
       onSubmit={formik.handleSubmit}
     >
-      <div>
-        <label htmlFor="full-name" className="sr-only">
-          Full name
-        </label>
-        <input
-          type="text"
-          name="full-name"
-          id="full-name"
-          autoComplete="name"
-          className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-          placeholder="Full name"
-        />
-      </div>
-      <div>
-        <label htmlFor="email" className="sr-only">
-          Email
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          autoComplete="email"
-          className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-          placeholder="Email"
-        />
-      </div>
-      <div>
-        <label htmlFor="phone" className="sr-only">
-          Phone
-        </label>
-        <input
-          type="text"
-          name="phone"
-          id="phone"
-          autoComplete="tel"
-          className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-          placeholder="Phone"
-        />
-      </div>
+      <FormControl
+        type="text"
+        name="name"
+        placeholder="Full name"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.name}
+        touched={formik.touched.name}
+        error={formik.errors.name}
+      />
+
+      <FormControl
+        type="email"
+        name="email"
+        placeholder="Email"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.email}
+        touched={formik.touched.email}
+        error={formik.errors.email}
+      />
+
+      <FormControl
+        type="text"
+        name="phone"
+        placeholder="Phone"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.phone}
+        touched={formik.touched.phone}
+        error={formik.errors.phone}
+      />
+
       <div>
         <label htmlFor="message" className="sr-only">
           Message
@@ -83,6 +78,7 @@ export default function ContactForm() {
           defaultValue={""}
         />
       </div>
+
       <div>
         <button
           type="submit"
