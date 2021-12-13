@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Heading from "components/molecules/Heading/Heading"
 import Contact from "components/molecules/Contact/Contact"
+import ContactFooter from "components/atoms/ContactFooter/ContactFooter"
 
 export default function ContactSection() {
   const data = useStaticQuery(graphql`
@@ -32,13 +33,7 @@ export default function ContactSection() {
 
             <Contact />
 
-            <p className="mt-6 text-base text-gray-500">
-              Looking for careers?{" "}
-              <a href="#" className="font-medium text-gray-700 underline">
-                View all job openings
-              </a>
-              .
-            </p>
+            <ContactFooter />
           </div>
         </div>
         <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
