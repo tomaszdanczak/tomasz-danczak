@@ -1,4 +1,5 @@
 import React from "react"
+import ProjectImage from "components/atoms/ProjectImage/ProjectImage"
 
 export default function ProjectItem({
   project: { title, live, liveurl, description, more, moreurl, image },
@@ -6,13 +7,7 @@ export default function ProjectItem({
   return (
     <li>
       <div className="space-y-4">
-        <div className="aspect-w-3 aspect-h-2">
-          <img
-            className="object-cover shadow-lg rounded-lg"
-            src={image.fluid.src}
-            alt=""
-          />
-        </div>
+        <ProjectImage image={image} altText={title} />
         <div className="text-lg leading-6 font-medium space-y-1">
           <h3>{title}</h3>
           <p className="text-indigo-600">{live}</p>
