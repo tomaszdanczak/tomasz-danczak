@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Header from "components/molecules/Header/Header"
+import ProjectItem from "components/organisms/ProjectItem/ProjectItem"
 
 export default function OtherProjectsSection() {
   const data = useStaticQuery(graphql`
@@ -41,7 +42,11 @@ export default function OtherProjectsSection() {
         <div className="space-y-12">
           <Header title={headingData.title} subtitle={headingData.subtitle} />
 
-          <ul className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8"></ul>
+          <ul className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
+            {projects.map(project => (
+              <ProjectItem key={project.title} project={project} />
+            ))}
+          </ul>
         </div>
       </div>
     </div>
