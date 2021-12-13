@@ -1,9 +1,23 @@
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import Heading from "components/molecules/Heading/Heading"
 
 import { MailIcon, PhoneIcon } from "@heroicons/react/outline"
 
 export default function ContactSection() {
+  const data = useStaticQuery(graphql`
+    {
+      allDatoCmsHeading(filter: { section: { eq: "ContactSection" } }) {
+        nodes {
+          subtitle
+          title
+        }
+      }
+    }
+  `)
+
+  const [headingData] = data.allDatoCmsHeading.nodes
+
   return (
     <div className="relative bg-white">
       <div className="absolute inset-0">
@@ -13,9 +27,8 @@ export default function ContactSection() {
         <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
           <div className="max-w-lg mx-auto space-y-5 sm:space-y-4">
             <Heading
-              title="Get in touch"
-              subtitle="Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat
-              massa dictumst amet. Sapien tortor lacus arcu."
+              title={headingData.title}
+              subtitle={headingData.subtitle}
             />
 
             <dl className="mt-8 text-base text-gray-500">
