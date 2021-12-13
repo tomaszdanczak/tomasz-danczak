@@ -1,5 +1,6 @@
 import React from "react"
 import ProjectImage from "components/atoms/ProjectImage/ProjectImage"
+import ProjectDetail from "components/molecules/ProjectDetail/ProjectDetail"
 
 export default function ProjectItem({
   project: { title, live, liveurl, description, more, moreurl, image },
@@ -8,13 +9,12 @@ export default function ProjectItem({
     <li>
       <div className="space-y-4">
         <ProjectImage image={image} altText={title} />
-        <div className="text-lg leading-6 font-medium space-y-1">
-          <h3>{title}</h3>
-          <p className="text-indigo-600">{live}</p>
-        </div>
-        <div className="text-lg">
-          <p className="text-gray-500">{description}</p>
-        </div>
+        <ProjectDetail
+          title={title}
+          live={live}
+          liveurl={liveurl}
+          description={description}
+        />
 
         <ul role="list" className="flex space-x-5">
           <li>
