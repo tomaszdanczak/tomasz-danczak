@@ -4,6 +4,7 @@ import * as Yup from "yup"
 import axios from "axios"
 import FormControl from "components/molecules/FormControl/FormControl"
 import TextArea from "components/molecules/TextArea/TextArea"
+import SubmitButton from "components/atoms/SubmitButton/SubmitButton"
 
 export default function ContactForm() {
   const formik = useFormik({
@@ -77,12 +78,7 @@ export default function ContactForm() {
       />
 
       <div>
-        <button
-          type="submit"
-          className="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        >
-          Submit
-        </button>
+        <SubmitButton label="Submit" theme="indigo" />
       </div>
     </form>
   )
