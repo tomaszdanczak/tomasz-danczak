@@ -1,64 +1,44 @@
 import React from "react"
 import Header from "components/molecules/Header/Header"
 import TechnologyFeature from "components/molecules/TechnologyFeature/TechnologyFeature"
-
-const features = [
-  {
-    name: "Invite team members",
-    description:
-      "Tempor tellus in aliquet eu et sit nulla tellus. Suspendisse est, molestie blandit quis ac. Lacus.",
-  },
-  {
-    name: "Notifications",
-    description:
-      "Ornare donec rhoncus vitae nisl velit, neque, mauris dictum duis. Nibh urna non parturient.",
-  },
-  {
-    name: "List view",
-    description:
-      "Etiam cras augue ornare pretium sit malesuada morbi orci, venenatis. Dictum lacus.",
-  },
-  {
-    name: "Boards",
-    description:
-      "Interdum quam pulvinar turpis tortor, egestas quis diam amet, natoque. Mauris sagittis.",
-  },
-  {
-    name: "Keyboard shortcuts",
-    description:
-      "Ullamcorper in ipsum ac feugiat. Senectus at aliquam vulputate mollis nec. In at risus odio.",
-  },
-  {
-    name: "Reporting",
-    description:
-      "Magna a vel sagittis aliquam eu amet. Et lorem auctor quam nunc odio. Sed bibendum.",
-  },
-  {
-    name: "Calendars",
-    description:
-      "Sed mi, dapibus turpis orci posuere integer. A porta viverra posuere adipiscing turpis.",
-  },
-  {
-    name: "Mobile app",
-    description:
-      "Quisque sapien nunc nisl eros. Facilisis sagittis maecenas id dignissim tristique proin sed.",
-  },
-]
+import { graphql, useStaticQuery } from "gatsby"
 
 export default function StaticSitesSection() {
+  const data = useStaticQuery(graphql`
+    {
+      allDatoCmsStaticsitesfeature(sort: { fields: originalId }) {
+        nodes {
+          title
+          description
+        }
+      }
+      allDatoCmsHeading(
+        filter: { section: { eq: "StaticSitesFeaturesSection" } }
+      ) {
+        nodes {
+          subtitle
+          title
+          special
+        }
+      }
+    }
+  `)
+
+  const features = data.allDatoCmsStaticsitesfeature.nodes
+  const [headingData] = data.allDatoCmsHeading.nodes
+
   return (
     <div className="bg-white">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
         <Header
           centreFrom="sm"
-          title="All-in-one platform"
-          subtitle="Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
-          Malesuada adipiscing sagittis vel nulla nec."
+          title={headingData.title}
+          subtitle={headingData.subtitle}
         />
 
         <dl className="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
           {features.map(feature => (
-            <TechnologyFeature key={feature.name} feature={feature} />
+            <TechnologyFeature key={feature.title} feature={feature} />
           ))}
         </dl>
       </div>

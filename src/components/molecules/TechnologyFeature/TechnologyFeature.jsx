@@ -1,7 +1,7 @@
 import React from "react"
 import { CheckIcon } from "@heroicons/react/outline"
 
-export default function TechnologyFeature({ feature: { name, description } }) {
+export default function TechnologyFeature({ feature: { title, description } }) {
   return (
     <div className="relative">
       <dt>
@@ -10,7 +10,7 @@ export default function TechnologyFeature({ feature: { name, description } }) {
           aria-hidden="true"
         />
         <p className="ml-9 text-lg leading-6 font-medium text-gray-900">
-          {name}
+          {title}
         </p>
       </dt>
       <dd className="mt-2 ml-9 text-base text-gray-500">{description}</dd>
