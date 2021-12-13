@@ -7,6 +7,7 @@ import StaticSitesSection from "components/organisms/StaticSitesSection/StaticSi
 import ReactFeaturesSection from "components/organisms/ReactFeaturesSection/ReactFeaturesSection"
 import ProjectsSection from "components/organisms/ProjectsSection/ProjectsSection"
 import OtherProjectsSection from "components/organisms/OtherProjectsSection/OtherProjectsSection"
+import ContactSection from "components/organisms/ContactSection/ContactSection"
 
 const IndexPage = () => (
   <MainLayout>
@@ -17,6 +18,7 @@ const IndexPage = () => (
     <ReactFeaturesSection />
     <ProjectsSection />
     <OtherProjectsSection />
+    <ContactSection />
   </MainLayout>
 )
 
