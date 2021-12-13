@@ -1,30 +1,29 @@
 import React from "react"
 
-export default function ProjectItem({ person }) {
+export default function ProjectItem({
+  project: { title, live, liveurl, description, more, moreurl, image },
+}) {
   return (
-    <li key={person.name}>
+    <li>
       <div className="space-y-4">
         <div className="aspect-w-3 aspect-h-2">
           <img
             className="object-cover shadow-lg rounded-lg"
-            src={person.imageUrl}
+            src={image.fluid.src}
             alt=""
           />
         </div>
         <div className="text-lg leading-6 font-medium space-y-1">
-          <h3>{person.name}</h3>
-          <p className="text-indigo-600">{person.role}</p>
+          <h3>{title}</h3>
+          <p className="text-indigo-600">{live}</p>
         </div>
         <div className="text-lg">
-          <p className="text-gray-500">{person.bio}</p>
+          <p className="text-gray-500">{description}</p>
         </div>
 
         <ul role="list" className="flex space-x-5">
           <li>
-            <a
-              href={person.twitterUrl}
-              className="text-gray-400 hover:text-gray-500"
-            >
+            <a href={moreurl} className="text-gray-400 hover:text-gray-500">
               <span className="sr-only">Twitter</span>
               <svg
                 className="w-5 h-5"
@@ -37,10 +36,7 @@ export default function ProjectItem({ person }) {
             </a>
           </li>
           <li>
-            <a
-              href={person.linkedinUrl}
-              className="text-gray-400 hover:text-gray-500"
-            >
+            <a href={moreurl} className="text-gray-400 hover:text-gray-500">
               <span className="sr-only">LinkedIn</span>
               <svg
                 className="w-5 h-5"
