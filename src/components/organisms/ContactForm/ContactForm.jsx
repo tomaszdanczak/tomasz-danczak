@@ -1,8 +1,36 @@
 import React from "react"
+import { useFormik } from "formik"
+import * as Yup from "yup"
+import axios from "axios"
 
 export default function ContactForm() {
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    },
+    validationSchema: Yup.object({
+      name: Yup.string()
+        .max(15, "Must be 15 characters or less")
+        .required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      phone: Yup.string().required("Required"),
+      message: Yup.string().required("Required"),
+    }),
+    onSubmit: values => {
+      axios.post("Firebase Cloud Function Here", values)
+    },
+  })
+
   return (
-    <form action="#" method="POST" className="grid grid-cols-1 gap-y-6">
+    <form
+      action="#"
+      method="POST"
+      className="grid grid-cols-1 gap-y-6"
+      onSubmit={formik.handleSubmit}
+    >
       <div>
         <label htmlFor="full-name" className="sr-only">
           Full name
