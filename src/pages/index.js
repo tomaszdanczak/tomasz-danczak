@@ -5,6 +5,7 @@ import BlogSection from "components/organisms/BlogSection/BlogSection"
 import MainLayout from "components/templates/MainLayout/MainLayout"
 import StaticSitesSection from "components/organisms/StaticSitesSection/StaticSitesSection"
 import ReactFeaturesSection from "components/organisms/ReactFeaturesSection/ReactFeaturesSection"
+import ProjectsSection from "components/organisms/ProjectsSection/ProjectsSection"
 
 const IndexPage = () => (
   <MainLayout>
@@ -13,6 +14,7 @@ const IndexPage = () => (
     <BlogSection />
     <StaticSitesSection />
     <ReactFeaturesSection />
+    <ProjectsSection />
   </MainLayout>
 )
 
