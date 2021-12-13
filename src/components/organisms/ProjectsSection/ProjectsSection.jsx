@@ -1,4 +1,6 @@
 import React from "react"
+import Heading from "../../molecules/Heading/Heading"
+
 const people = [
   {
     name: "Emma Dorsey",
@@ -18,15 +20,14 @@ export default function ProjectsSection() {
       <div className="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
         <div className="space-y-12 lg:grid lg:grid-cols-3 lg:gap-8 lg:space-y-0">
           <div className="space-y-5 sm:space-y-4">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Our Team
-            </h2>
-            <p className="text-xl text-gray-500">
-              Nulla quam felis, enim faucibus proin velit, ornare id pretium.
+            <Heading
+              title="Our Team"
+              subtitle="Nulla quam felis, enim faucibus proin velit, ornare id pretium.
               Augue ultrices sed arcu condimentum vestibulum suspendisse.
-              Volutpat eu faucibus vivamus eget bibendum cras.
-            </p>
+              Volutpat eu faucibus vivamus eget bibendum cras."
+            />
           </div>
+
           <div className="lg:col-span-2">
             <ul
               role="list"
