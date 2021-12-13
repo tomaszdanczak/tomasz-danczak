@@ -48,10 +48,7 @@ export default function ProjectsSection() {
           </div>
 
           <div className="lg:col-span-2">
-            <ul
-              role="list"
-              className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:gap-x-8"
-            >
+            <ul className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:gap-x-8">
               {projects.map(project => (
                 <ProjectItem key={project.title} project={project} />
               ))}
