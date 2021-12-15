@@ -10,7 +10,8 @@ export default function Footer() {
         <SocialNavigation />
 
         <p className="mt-8 text-center text-base text-gray-400">
-          &copy; 2020 Workflow, Inc. All rights reserved.
+          &copy; {new Date().getFullYear()}, Built with{" "}
+          <a href="https://www.gatsbyjs.com/">Gatsby</a>
         </p>
       </div>
     </footer>
