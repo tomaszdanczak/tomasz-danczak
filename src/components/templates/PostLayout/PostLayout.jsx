@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import HeroSection from "components/organisms/HeroSection/HeroSection"
 import Article from "components/organisms/Article/Article"
+import Footer from "components/organisms/Footer/Footer"
 
 export const data = graphql`
   query querySinglePost($id: String!) {
@@ -72,6 +73,7 @@ export default function PostLayout({ data }) {
     <>
       <HeroSection />
       <Article postData={postData} />
+      <Footer />
     </>
   )
 }
