@@ -14,7 +14,10 @@ export default function HeroForm() {
       email: Yup.string().email("Invalid email address").required("Required"),
     }),
     onSubmit: values => {
-      axios.post("Firebase function here", values)
+      axios.post(
+        "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail2",
+        values
+      )
     },
   })
 
