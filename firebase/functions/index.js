@@ -19,12 +19,13 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
   cors(req, res, () => {
     sgMail.setApiKey(functions.config().sendgrid.key)
 
-    sgMail.send(msg).then(() => {
-      console.log('Email sent')
+    sgMail.send(msg, (error, response) => {
+      if (error) {
+        res.send(500)
+      } else {
+        res.send(response)
+      }
     })
-      .catch((error) => {
-        console.error(error.response.body)
-      })
   })
 });
 
