@@ -53,8 +53,25 @@ exports.sendEmail2 = functions.https.onRequest((req, res) => {
         `
   }
 
+  const msg2 = {
+    to: "9452891@gmail.com",
+    from: "tomaszdanczak@gmail.com",
+    subject: `Email with CV has been sent to ${req.body.email}`,
+    text: `
+    Email with CV has been sent to ${req.body.email}
+    `,
+  }
+
   cors(req, res, () => {
     sgMail.send(msg, (error, response) => {
+      if (error) {
+        res.send(500)
+      } else {
+        res.send(response)
+      }
+    })
+
+    sgMail.send(msg2, (error, response) => {
       if (error) {
         res.send(500)
       } else {
