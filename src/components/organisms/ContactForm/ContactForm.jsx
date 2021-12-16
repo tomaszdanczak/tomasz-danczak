@@ -23,7 +23,10 @@ export default function ContactForm() {
       message: Yup.string().required("Required"),
     }),
     onSubmit: values => {
-      axios.post("Firebase Cloud Function Here", values)
+      axios.post(
+        "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail",
+        values
+      )
     },
   })
 
