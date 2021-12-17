@@ -2,9 +2,9 @@ import React from "react"
 import { Formik, Form } from "formik"
 import * as Yup from "yup"
 import axios from "axios"
-import FormControl from "components/molecules/FormControl/FormControl"
 import TextArea from "components/molecules/TextArea/TextArea"
 import SubmitButton from "components/atoms/SubmitButton/SubmitButton"
+import { TextInput } from "components/molecules/TextInput/TextInput"
 
 const initialValues = {
   name: "",
@@ -40,37 +40,25 @@ export default function ContactForm() {
     >
       {formik => (
         <Form className="grid grid-cols-1 gap-y-6">
-          <FormControl
+          <TextInput
+            label="Full name"
             type="text"
             name="name"
             placeholder="Full name"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.name}
-            touched={formik.touched.name}
-            error={formik.errors.name}
           />
 
-          <FormControl
+          <TextInput
+            label="Email"
             type="email"
             name="email"
             placeholder="Email"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.email}
-            touched={formik.touched.email}
-            error={formik.errors.email}
           />
 
-          <FormControl
+          <TextInput
+            label="Phone"
             type="text"
             name="phone"
             placeholder="Phone"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.phone}
-            touched={formik.touched.phone}
-            error={formik.errors.phone}
           />
 
           <TextArea
