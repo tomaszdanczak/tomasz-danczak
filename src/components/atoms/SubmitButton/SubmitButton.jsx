@@ -1,10 +1,11 @@
 import React from "react"
 
-export default function SubmitButton({ label, theme }) {
+export default function SubmitButton({ label, theme, disabled }) {
   return (
     <button
+      disabled={disabled}
       type="submit"
-      className={`inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 ${getClasses(
+      className={`inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 ${getClasses(
         theme
       )}`}
     >
