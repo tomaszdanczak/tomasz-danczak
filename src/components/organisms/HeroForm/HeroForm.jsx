@@ -5,20 +5,28 @@ import FormControl from "components/atoms/FormControl/FormControl"
 import SubmitButton from "components/atoms/SubmitButton/SubmitButton"
 import axios from "axios"
 
+const initialValues = {
+  email: "",
+}
+
+const validationSchema = Yup.object({
+  email: Yup.string().email("Invalid email address").required("Required"),
+})
+
+const onSubmit = values => {
+  console.log("values:", values)
+
+  // axios.post(
+  //   "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail2",
+  //   values
+  // )
+}
+
 export default function HeroForm() {
   const formik = useFormik({
-    initialValues: {
-      email: "",
-    },
-    validationSchema: Yup.object({
-      email: Yup.string().email("Invalid email address").required("Required"),
-    }),
-    onSubmit: values => {
-      axios.post(
-        "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail2",
-        values
-      )
-    },
+    initialValues,
+    validationSchema,
+    onSubmit,
   })
 
   return (
