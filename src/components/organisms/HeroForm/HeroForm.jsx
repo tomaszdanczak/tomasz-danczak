@@ -1,5 +1,5 @@
 import React from "react"
-import { Formik } from "formik"
+import { Formik, Form } from "formik"
 import * as Yup from "yup"
 import axios from "axios"
 import SubmitButton from "components/atoms/SubmitButton/SubmitButton"
@@ -33,12 +33,7 @@ export default function HeroForm() {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        <form
-          action="#"
-          method="POST"
-          className="mt-3 sm:flex"
-          // onSubmit={formik.handleSubmit}
-        >
+        <Form className="mt-3 sm:flex">
           <div className="flex-1">
             <TextInput
               label="Enter your email"
@@ -52,7 +47,7 @@ export default function HeroForm() {
             {/* TODO: Success message: The email has been send successfully. */}
             <SubmitButton label="Get CV" theme="gray" />
           </div>
-        </form>
+        </Form>
       </Formik>
     </div>
   )
