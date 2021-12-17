@@ -27,7 +27,7 @@ export default function HeroForm() {
   return (
     <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
       <p className="text-base font-medium text-gray-900">
-        Left your email to get CV.
+        Left your email to get CV
       </p>
       <Formik
         initialValues={initialValues}
@@ -43,6 +43,7 @@ export default function HeroForm() {
                   name="email"
                   type="email"
                   placeholder="Enter your email"
+                  disabled={formik.status}
                 />
               </div>
 
