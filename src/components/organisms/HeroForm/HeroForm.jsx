@@ -14,14 +14,13 @@ const validationSchema = Yup.object({
 })
 
 const onSubmit = (values, onSubmitProps) => {
-  console.log("values:", values)
   onSubmitProps.resetForm()
   onSubmitProps.setStatus("Please check your email")
 
-  // axios.post(
-  //   "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail2",
-  //   values
-  // )
+  axios.post(
+    "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail2",
+    values
+  )
 }
 
 export default function HeroForm() {
