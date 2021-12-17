@@ -22,7 +22,9 @@ const validationSchema = Yup.object({
   message: Yup.string().required("Required"),
 })
 
-const onSubmit = values => {
+const onSubmit = (values, onSubmitProps) => {
+  onSubmitProps.resetForm()
+
   console.log("values:", values)
 
   // axios.post(
