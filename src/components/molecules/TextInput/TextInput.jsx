@@ -9,7 +9,7 @@ export const TextInput = ({ label, ...props }) => {
         {label}
       </label>
       <input
-        className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+        className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md disabled:opacity-50"
         {...field}
         {...props}
       />
