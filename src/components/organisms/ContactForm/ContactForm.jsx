@@ -6,28 +6,34 @@ import FormControl from "components/molecules/FormControl/FormControl"
 import TextArea from "components/molecules/TextArea/TextArea"
 import SubmitButton from "components/atoms/SubmitButton/SubmitButton"
 
+const initialValues = {
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+}
+
+const validationSchema = Yup.object({
+  name: Yup.string()
+    .max(15, "Must be 15 characters or less")
+    .required("Required"),
+  email: Yup.string().email("Invalid email address").required("Required"),
+  phone: Yup.string().required("Required"),
+  message: Yup.string().required("Required"),
+})
+
+const onSubmit = values => {
+  axios.post(
+    "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail",
+    values
+  )
+}
+
 export default function ContactForm() {
   const formik = useFormik({
-    initialValues: {
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    },
-    validationSchema: Yup.object({
-      name: Yup.string()
-        .max(15, "Must be 15 characters or less")
-        .required("Required"),
-      email: Yup.string().email("Invalid email address").required("Required"),
-      phone: Yup.string().required("Required"),
-      message: Yup.string().required("Required"),
-    }),
-    onSubmit: values => {
-      axios.post(
-        "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail",
-        values
-      )
-    },
+    initialValues,
+    validationSchema,
+    onSubmit,
   })
 
   return (
