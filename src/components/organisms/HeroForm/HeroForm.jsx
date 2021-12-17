@@ -33,21 +33,29 @@ export default function HeroForm() {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        <Form className="mt-3 sm:flex">
-          <div className="flex-1">
-            <TextInput
-              label="Enter your email"
-              name="email"
-              type="email"
-              placeholder="Enter your email"
-            />
-          </div>
+        {formik => (
+          <Form className="mt-3 sm:flex">
+            <div className="flex-1">
+              <TextInput
+                label="Enter your email"
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+              />
+            </div>
 
-          <div className="mt-3 sm:mt-0 sm:ml-3">
-            {/* TODO: Success message: The email has been send successfully. */}
-            <SubmitButton label="Get CV" theme="gray" />
-          </div>
-        </Form>
+            <div className="mt-3 sm:mt-0 sm:ml-3">
+              {/* TODO: Success message: The email has been send successfully. */}
+              <SubmitButton
+                label="Get CV"
+                theme="gray"
+                disabled={
+                  !(formik.dirty && formik.isValid) || formik.isSubmitting
+                }
+              />
+            </div>
+          </Form>
+        )}
       </Formik>
     </div>
   )
