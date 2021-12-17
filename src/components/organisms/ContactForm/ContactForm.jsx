@@ -5,6 +5,7 @@ import axios from "axios"
 import TextArea from "components/molecules/TextArea/TextArea"
 import SubmitButton from "components/atoms/SubmitButton/SubmitButton"
 import { TextInput } from "components/molecules/TextInput/TextInput"
+import { phoneRegExp } from "utils/regExp"
 
 const initialValues = {
   name: "",
@@ -18,7 +19,9 @@ const validationSchema = Yup.object({
     .max(15, "Must be 15 characters or less")
     .required("Required"),
   email: Yup.string().email("Invalid email address").required("Required"),
-  phone: Yup.string().required("Required"),
+  phone: Yup.string()
+    .matches(phoneRegExp, "Phone number is not valid")
+    .required("Required"),
   message: Yup.string().required("Required"),
 })
 
