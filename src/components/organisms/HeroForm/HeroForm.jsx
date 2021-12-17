@@ -13,8 +13,9 @@ const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email address").required("Required"),
 })
 
-const onSubmit = values => {
+const onSubmit = (values, onSubmitProps) => {
   console.log("values:", values)
+  onSubmitProps.resetForm()
 
   // axios.post(
   //   "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail2",
