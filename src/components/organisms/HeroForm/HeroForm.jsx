@@ -1,9 +1,9 @@
 import React from "react"
 import { Formik } from "formik"
 import * as Yup from "yup"
-import FormControl from "components/atoms/FormControl/FormControl"
-import SubmitButton from "components/atoms/SubmitButton/SubmitButton"
 import axios from "axios"
+import SubmitButton from "components/atoms/SubmitButton/SubmitButton"
+import { TextInput } from "components/molecules/TextInput/TextInput"
 
 const initialValues = {
   email: "",
@@ -37,19 +37,15 @@ export default function HeroForm() {
           action="#"
           method="POST"
           className="mt-3 sm:flex"
-          onSubmit={formik.handleSubmit}
+          // onSubmit={formik.handleSubmit}
         >
           <div className="flex-1">
-            {/* <FormControl
+            <TextInput
+              label="Enter your email"
               name="email"
-              placeholder="Enter your email"
               type="email"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-              touched={formik.touched.email}
-              error={formik.errors.email}
-            /> */}
+              placeholder="Enter your email"
+            />
           </div>
 
           <div className="mt-3 sm:mt-0 sm:ml-3">
