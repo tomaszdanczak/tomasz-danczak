@@ -72,7 +72,13 @@ export default function ContactForm() {
           />
 
           <div>
-            <SubmitButton label="Submit" theme="indigo" />
+            <SubmitButton
+              label="Submit"
+              theme="indigo"
+              disabled={
+                !(formik.dirty && formik.isValid) || formik.isSubmitting
+              }
+            />
           </div>
         </Form>
       )}
