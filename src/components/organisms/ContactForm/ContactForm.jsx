@@ -48,6 +48,7 @@ export default function ContactForm() {
             type="text"
             name="name"
             placeholder="Full name"
+            disabled={formik.status}
           />
 
           <TextInput
@@ -55,6 +56,7 @@ export default function ContactForm() {
             type="email"
             name="email"
             placeholder="Email"
+            disabled={formik.status}
           />
 
           <TextInput
@@ -62,11 +64,13 @@ export default function ContactForm() {
             type="text"
             name="phone"
             placeholder="Phone"
+            disabled={formik.status}
           />
 
           <TextArea
             name="message"
             placeholder="Message"
+            disabled={formik.status}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.message}
