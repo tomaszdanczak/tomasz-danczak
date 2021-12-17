@@ -26,12 +26,10 @@ const onSubmit = (values, onSubmitProps) => {
   onSubmitProps.resetForm()
   onSubmitProps.setStatus("Thank you for message. I will contact you soon.")
 
-  console.log("values:", values)
-
-  // axios.post(
-  //   "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail",
-  //   values
-  // )
+  axios.post(
+    "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail",
+    values
+  )
 }
 
 export default function ContactForm() {
