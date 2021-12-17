@@ -24,6 +24,7 @@ const validationSchema = Yup.object({
 
 const onSubmit = (values, onSubmitProps) => {
   onSubmitProps.resetForm()
+  onSubmitProps.setStatus("Thank you for message. I will contact you soon.")
 
   console.log("values:", values)
 
@@ -73,7 +74,7 @@ export default function ContactForm() {
             error={formik.errors.message}
           />
 
-          <div>
+          <div className="flex">
             <SubmitButton
               label="Submit"
               theme="indigo"
@@ -81,6 +82,9 @@ export default function ContactForm() {
                 !(formik.dirty && formik.isValid) || formik.isSubmitting
               }
             />
+            {formik.isValid && formik.status && (
+              <div className="ml-3 text-green-500">{formik.status}</div>
+            )}
           </div>
         </Form>
       )}
