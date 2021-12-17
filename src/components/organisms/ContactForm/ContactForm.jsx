@@ -1,5 +1,5 @@
 import React from "react"
-import { Formik } from "formik"
+import { Formik, Form } from "formik"
 import * as Yup from "yup"
 import axios from "axios"
 import FormControl from "components/molecules/FormControl/FormControl"
@@ -39,12 +39,7 @@ export default function ContactForm() {
       onSubmit={onSubmit}
     >
       {formik => (
-        <form
-          action="#"
-          method="POST"
-          className="grid grid-cols-1 gap-y-6"
-          onSubmit={formik.handleSubmit}
-        >
+        <Form className="grid grid-cols-1 gap-y-6">
           <FormControl
             type="text"
             name="name"
@@ -91,7 +86,7 @@ export default function ContactForm() {
           <div>
             <SubmitButton label="Submit" theme="indigo" />
           </div>
-        </form>
+        </Form>
       )}
     </Formik>
   )
