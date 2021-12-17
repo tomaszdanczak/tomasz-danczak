@@ -16,6 +16,7 @@ const validationSchema = Yup.object({
 const onSubmit = (values, onSubmitProps) => {
   console.log("values:", values)
   onSubmitProps.resetForm()
+  onSubmitProps.setStatus("Please check your email")
 
   // axios.post(
   //   "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail2",
@@ -35,26 +36,30 @@ export default function HeroForm() {
         onSubmit={onSubmit}
       >
         {formik => (
-          <Form className="mt-3 sm:flex">
-            <div className="flex-1">
-              <TextInput
-                label="Enter your email"
-                name="email"
-                type="email"
-                placeholder="Enter your email"
-              />
-            </div>
+          <Form>
+            <div className="mt-3 sm:flex">
+              <div className="flex-1">
+                <TextInput
+                  label="Enter your email"
+                  name="email"
+                  type="email"
+                  placeholder="Enter your email"
+                />
+              </div>
 
-            <div className="mt-3 sm:mt-0 sm:ml-3">
-              {/* TODO: Success message: The email has been send successfully. */}
-              <SubmitButton
-                label="Get CV"
-                theme="gray"
-                disabled={
-                  !(formik.dirty && formik.isValid) || formik.isSubmitting
-                }
-              />
+              <div className="mt-3 sm:mt-0 sm:ml-3">
+                <SubmitButton
+                  label="Get CV"
+                  theme="gray"
+                  disabled={
+                    !(formik.dirty && formik.isValid) || formik.isSubmitting
+                  }
+                />
+              </div>
             </div>
+            {formik.isValid && formik.status && (
+              <div className="ml-3 text-green-500">{formik.status}</div>
+            )}
           </Form>
         )}
       </Formik>
