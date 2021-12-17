@@ -1,5 +1,5 @@
 import React from "react"
-import { useFormik } from "formik"
+import { Formik } from "formik"
 import * as Yup from "yup"
 import axios from "axios"
 import FormControl from "components/molecules/FormControl/FormControl"
@@ -23,72 +23,76 @@ const validationSchema = Yup.object({
 })
 
 const onSubmit = values => {
-  axios.post(
-    "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail",
-    values
-  )
+  console.log("values:", values)
+
+  // axios.post(
+  //   "https://us-central1-send-email-cccfc.cloudfunctions.net/sendEmail",
+  //   values
+  // )
 }
 
 export default function ContactForm() {
-  const formik = useFormik({
-    initialValues,
-    validationSchema,
-    onSubmit,
-  })
-
   return (
-    <form
-      action="#"
-      method="POST"
-      className="grid grid-cols-1 gap-y-6"
-      onSubmit={formik.handleSubmit}
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
     >
-      <FormControl
-        type="text"
-        name="name"
-        placeholder="Full name"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.name}
-        touched={formik.touched.name}
-        error={formik.errors.name}
-      />
+      {formik => (
+        <form
+          action="#"
+          method="POST"
+          className="grid grid-cols-1 gap-y-6"
+          onSubmit={formik.handleSubmit}
+        >
+          <FormControl
+            type="text"
+            name="name"
+            placeholder="Full name"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.name}
+            touched={formik.touched.name}
+            error={formik.errors.name}
+          />
 
-      <FormControl
-        type="email"
-        name="email"
-        placeholder="Email"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email}
-        touched={formik.touched.email}
-        error={formik.errors.email}
-      />
+          <FormControl
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+            touched={formik.touched.email}
+            error={formik.errors.email}
+          />
 
-      <FormControl
-        type="text"
-        name="phone"
-        placeholder="Phone"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.phone}
-        touched={formik.touched.phone}
-        error={formik.errors.phone}
-      />
+          <FormControl
+            type="text"
+            name="phone"
+            placeholder="Phone"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.phone}
+            touched={formik.touched.phone}
+            error={formik.errors.phone}
+          />
 
-      <TextArea
-        name="message"
-        placeholder="Message"
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.message}
-        touched={formik.touched.message}
-        error={formik.errors.message}
-      />
+          <TextArea
+            name="message"
+            placeholder="Message"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.message}
+            touched={formik.touched.message}
+            error={formik.errors.message}
+          />
 
-      <div>
-        <SubmitButton label="Submit" theme="indigo" />
-      </div>
-    </form>
+          <div>
+            <SubmitButton label="Submit" theme="indigo" />
+          </div>
+        </form>
+      )}
+    </Formik>
   )
 }
