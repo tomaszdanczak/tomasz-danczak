@@ -6,7 +6,7 @@ import ProjectItem from "components/organisms/ProjectItem/ProjectItem"
 export default function OtherProjectsSection() {
   const data = useStaticQuery(graphql`
     {
-      allDatoCmsOtherproject {
+      allDatoCmsOtherproject(sort: { fields: itemposition }) {
         nodes {
           title
           live

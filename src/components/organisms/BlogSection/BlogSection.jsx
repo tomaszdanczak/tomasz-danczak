@@ -6,7 +6,7 @@ import { graphql, useStaticQuery } from "gatsby"
 export default function BlogSection() {
   const data = useStaticQuery(graphql`
     {
-      allDatoCmsBlogPost {
+      allDatoCmsBlogPost(sort: { fields: itemposition }) {
         nodes {
           title
           description

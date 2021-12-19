@@ -6,7 +6,7 @@ import TechnologyFeature from "components/molecules/TechnologyFeature/Technology
 export default function ReactFeaturesSection() {
   const data = useStaticQuery(graphql`
     {
-      allDatoCmsReactfeature {
+      allDatoCmsReactfeature(sort: { fields: itemposition }) {
         nodes {
           title
           description

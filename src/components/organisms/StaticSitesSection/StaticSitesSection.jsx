@@ -6,7 +6,7 @@ import { graphql, useStaticQuery } from "gatsby"
 export default function StaticSitesSection() {
   const data = useStaticQuery(graphql`
     {
-      allDatoCmsStaticsitesfeature(sort: { fields: originalId }) {
+      allDatoCmsStaticsitesfeature(sort: { fields: itemposition }) {
         nodes {
           title
           description
