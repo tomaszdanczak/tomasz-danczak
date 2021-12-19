@@ -13,7 +13,7 @@ export default function AboutSection() {
           special
         }
       }
-      allDatoCmsAboutsectionfeature(sort: { fields: originalId }) {
+      allDatoCmsAboutsectionfeature(sort: { fields: itemposition }) {
         nodes {
           title
           description
