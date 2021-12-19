@@ -26,7 +26,7 @@ export default function AboutSection() {
   const features = data.allDatoCmsAboutsectionfeature.nodes
 
   return (
-    <div className="py-12 bg-white">
+    <div id="aboutsection" className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Header
           centreFrom="lg"

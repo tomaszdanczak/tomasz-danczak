@@ -28,7 +28,7 @@ export default function StaticSitesSection() {
   const [headingData] = data.allDatoCmsHeading.nodes
 
   return (
-    <div className="bg-white">
+    <div id="staticsitessection" className="bg-white">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
         <Header
           centreFrom="sm"
